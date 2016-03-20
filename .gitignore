@@ -1,0 +1,7 @@
+
+ls
+cd
+
+*.tmp
+target
+target/
