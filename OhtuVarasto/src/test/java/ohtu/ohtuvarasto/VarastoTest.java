@@ -37,6 +37,21 @@ public class VarastoTest {
         // saldon pitäisi olla sama kun lisätty määrä
         assertEquals(8, varasto.getSaldo(), vertailuTarkkuus);
     }
+        @Test//oma lisäys testiin 20.3.
+    public void lisaysLiikaaYlimaarainenPois() {
+        varasto.lisaaVarastoon(12);
+
+        // lisätään se mitä mahtuu eli täyteen ja loput hävitetään pois
+        assertEquals(10, varasto.getTilavuus(), vertailuTarkkuus);
+    }
+    
+@Test//oma lisäys testiin 20.3.
+    public void lisaysVirhetilanne() {
+        varasto.lisaaVarastoon(-1);
+
+        // poistuminen virhetilanteessa, ei lisää varastoon mitään
+        assertEquals(0, varasto.getTilavuus(), vertailuTarkkuus);
+    }
 
     @Test
     public void lisaysLisaaPienentaaVapaataTilaa() {
@@ -64,7 +79,24 @@ public class VarastoTest {
         // varastossa pitäisi olla tilaa 10 - 8 + 2 eli 4
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
+    @Test//oma lisäys testiin 20.3.
+    public void ottaminenLiikaaNollaaSaldon() {
+        varasto.lisaaVarastoon(8);
 
+        varasto.otaVarastosta(10);
+
+        // varastosta otetaan enemmän kuin siellä on, annetaan 8 saldo 0
+        assertEquals(0.0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test//oma lisäys testiin 20.3.
+    public void ottaminenVirhetilanne() {
+        varasto.otaVarastosta(-1);
+
+        // varastosta otetaan <0
+        assertEquals(8, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
     @Test
     public void konstr() {
         varasto = new Varasto(-1);
