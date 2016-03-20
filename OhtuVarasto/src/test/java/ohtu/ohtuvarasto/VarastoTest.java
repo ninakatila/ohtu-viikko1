@@ -45,10 +45,6 @@ public class VarastoTest {
         assertEquals(10, varasto.getTilavuus(), vertailuTarkkuus);
     }
     
-@Test//oma lisäys testiin 20.3.
-    public void lisaysVirhetilanne() {
-        varasto.lisaaVarastoon(-1);
-    }
 
     @Test
     public void lisaysLisaaPienentaaVapaataTilaa() {
@@ -83,17 +79,9 @@ public class VarastoTest {
         varasto.otaVarastosta(10);
 
         // varastosta otetaan enemmän kuin siellä on, annetaan 8 saldo 0
-        assertEquals(8, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
     }
 
-    @Test//oma lisäys testiin 20.3.
-    public void ottaminenVirhetilanne() {
-        varasto.otaVarastosta(-1);
-
-        // varastosta otetaan <0
-        assertEquals(0.0, varasto.getSaldo(), vertailuTarkkuus);
-    }
-    
     @Test
     public void konstr() {
         varasto = new Varasto(-1);
