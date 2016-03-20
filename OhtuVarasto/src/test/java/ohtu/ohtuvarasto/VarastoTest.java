@@ -48,9 +48,6 @@ public class VarastoTest {
 @Test//oma lisäys testiin 20.3.
     public void lisaysVirhetilanne() {
         varasto.lisaaVarastoon(-1);
-
-        // poistuminen virhetilanteessa, ei lisää varastoon mitään
-        assertEquals(0, varasto.getTilavuus(), vertailuTarkkuus);
     }
 
     @Test
@@ -86,7 +83,7 @@ public class VarastoTest {
         varasto.otaVarastosta(10);
 
         // varastosta otetaan enemmän kuin siellä on, annetaan 8 saldo 0
-        assertEquals(0.0, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(8, varasto.getSaldo(), vertailuTarkkuus);
     }
 
     @Test//oma lisäys testiin 20.3.
@@ -94,7 +91,7 @@ public class VarastoTest {
         varasto.otaVarastosta(-1);
 
         // varastosta otetaan <0
-        assertEquals(8, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(0.0, varasto.getSaldo(), vertailuTarkkuus);
     }
     
     @Test
