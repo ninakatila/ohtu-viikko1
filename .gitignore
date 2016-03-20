@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 ls
 cd
@@ -5,3 +6,7 @@ cd
 *.tmp
 target
 target/
+=======
+*.tmp
+target
+>>>>>>> 2579268f534b807db0be6b75f29cc2078184d3fd
